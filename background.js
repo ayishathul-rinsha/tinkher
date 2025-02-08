@@ -48,6 +48,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             }
         }
 
+        else if (request.action === "shareHighlight") {
+            const { folder, index } = request;
+
+            if (highlights[folder] && highlights[folder][index]) {
+                const highlight = highlights[folder][index];
+                const highlightLink = `Check out this highlight: ${highlight.text} - ${highlight.url}`;
+                sendResponse({ status: "success", shareLink: highlightLink });
+            } else {
+                sendResponse({ status: "error", message: "Highlight not found!" });
+            }
+        }
+
+
         return true; // Required for async `sendResponse`
     });
 });
