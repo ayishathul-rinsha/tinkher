@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Extension</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📌 NOTES!!!</h1>
+        <div class="toggle-container">
+            <span>🌞</span>
+            <input type="checkbox" id="modeToggle">
+            <label for="modeToggle" class="toggle-btn"></label>
+            <span>🌙</span>
+        </div>
+        <div id="notes-list">
+            <!-- Display highlighted notes here -->
+            <div id="highlighted-text">
+                No highlights yet
+            </div>
+        </div>
+        <div id="folders">
+            <!-- Folders will be dynamically added here -->
+        </div>
+        <button id="addFolder">➕ Add Folder</button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
