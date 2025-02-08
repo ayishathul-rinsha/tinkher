@@ -27,11 +27,23 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 highlights[folder].splice(index, 1);
 
                 if (highlights[folder].length === 0) {
-                    delete highlights[folder]; // Remove folder if empty
+                    delete highlights[folder]; // Remove empty folders
                 }
 
                 chrome.storage.local.set({ highlights }, () => {
                     sendResponse({ status: "success", message: "Highlight deleted!" });
+                });
+            }
+        }
+
+        else if (request.action === "deleteFolder") {
+            const { folder } = request;
+
+            if (highlights[folder]) {
+                delete highlights[folder]; // Delete entire folder
+
+                chrome.storage.local.set({ highlights }, () => {
+                    sendResponse({ status: "success", message: "Folder deleted!" });
                 });
             }
         }
