@@ -60,6 +60,25 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             }
         }
 
+        // New action for renaming the folder
+        else if (request.action === "renameFolder") {
+            const { oldFolder, newFolder } = request;
+
+            if (highlights[oldFolder]) {
+                // Create new folder with the same highlights
+                highlights[newFolder] = highlights[oldFolder];
+
+                // Delete the old folder
+                delete highlights[oldFolder];
+
+                chrome.storage.local.set({ highlights }, () => {
+                    sendResponse({ status: "success", message: `Folder renamed to ${newFolder}!` });
+                });
+            } else {
+                sendResponse({ status: "error", message: "Old folder not found!" });
+            }
+        }
+
 
         return true; // Required for async `sendResponse`
     });
