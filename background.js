@@ -48,15 +48,20 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             }
         }
 
-        else if (request.action === "shareHighlight") {
-            const { folder, index } = request;
+        // New action for sharing the folder
+        else if (request.action === "shareFolder") {
+            const { folder } = request;
 
-            if (highlights[folder] && highlights[folder][index]) {
-                const highlight = highlights[folder][index];
-                const highlightLink = `Check out this highlight: ${highlight.text} - ${highlight.url}`;
-                sendResponse({ status: "success", shareLink: highlightLink });
+            if (highlights[folder] && highlights[folder].length > 0) {
+                let sharedContent = `Check out the highlights from the folder "${folder}":\n\n`;
+
+                highlights[folder].forEach((highlight, index) => {
+                    sharedContent += `${index + 1}. ${highlight.text} - ${highlight.url}\n`;
+                });
+
+                sendResponse({ status: "success", shareLink: sharedContent });
             } else {
-                sendResponse({ status: "error", message: "Highlight not found!" });
+                sendResponse({ status: "error", message: "Folder is empty or not found!" });
             }
         }
 
@@ -80,6 +85,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
 
 
-        return true; // Required for async `sendResponse`
+        return true; 
     });
 });
