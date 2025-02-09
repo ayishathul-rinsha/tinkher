@@ -68,7 +68,7 @@ Smart Notes Organizer addresses these challenges through the following features:
    - Test changes on sample web pages
 
 ### Screenshots
-https://drive.google.com/file/d/17S815zEMDnlru29mer243hppwzXZxgoG/view?usp=sharing
+https://drive.google.com/drive/folders/1pE2cDeCxmnRNs-VufOAtOwL7-RVQTBbz
 
 ### Testing
 1. Highlight text on various websites
