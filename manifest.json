@@ -1,32 +1,47 @@
 {
-    "manifest_version": 3,
-    "name": "Highlight and Note Saver",
-    "version": "1.0",
-    "description": "A simple extension to highlight text and store it in a floating notes box.",
-    "permissions": [
-      "activeTab"
-    ],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"]
-      }
-    ],
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icons/sticky-note (1).png",
-        "48": "icons/48x48_sticky-note.png",
-        "128": "icons/sticky-note.png"
-      }
-    },
-    "icons": {
+  "manifest_version": 3,
+  "name": "Highlight Saver",
+  "description": "A Chrome extension to save highlights in folders.",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
       "16": "icons/sticky-note (1).png",
       "48": "icons/48x48_sticky-note.png",
       "128": "icons/sticky-note.png"
     }
+  },
+  "commands": {
+    "openFolder": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Open folder view"
+    },
+    "saveHighlightToFolder": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+H"
+      },
+      "description": "Save highlight to the selected folder"
+    }
+  },
+  "icons": {
+    "16": "icons/sticky-note (1).png",
+    "48": "icons/48x48_sticky-note.png",
+    "128": "icons/sticky-note.png"
   }
-  
+}
