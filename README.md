@@ -66,6 +66,8 @@ Smart Notes Organizer addresses these challenges through the following features:
    - Make changes to the code
    - Refresh the extension in chrome://extensions/
    - Test changes on sample web pages
+###Screenshots
+https://drive.google.com/drive/folders/1pE2cDeCxmnRNs-VufOAtOwL7-RVQTBbz
 
 ### Testing
 1. Highlight text on various websites
