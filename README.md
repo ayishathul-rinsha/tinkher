@@ -84,12 +84,13 @@ Developed text selection functionality
 Created highlight preservation system
 Integrated webpage interaction features
 
-Ayishathul Rinsha - UI/UX Designer
+Ayishathul Rinsha - Full Stack Developer
 
 Developed UI/UX and designed interface components
 Implemented responsive styling
 Created dark/light mode theming
 Developed UI animations and transitions
+Implemented frontend and backend communication
 
 Ajisha B - Full-Stack Developer
 
